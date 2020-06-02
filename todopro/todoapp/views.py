@@ -41,7 +41,7 @@ def loginuser(request):
             return render(request,'todoapp/loginuser.html',{'form':AuthenticationForm,'error':'username or password did not match'})
         else:
             login(request,user)
-            return redirect('createtodo')
+            return redirect('home')
 
 
 def createtodo(request):

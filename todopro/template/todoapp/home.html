@@ -1,5 +1,61 @@
-
 {% extends 'base/base.html'%}
 {% block content %}
-<h1>homepage</h1>
+{% load static %}
+<div class="d-flex justify-content-center">
+<h1>Home Page</h1></div>
+      <div class="container">
+        <div class="jumbotron">
+          <h1>{{insert_me}}</h1>
+          <p>Python is an interpreted, high-level, general-purpose programming language. Created by Guido van Rossum and first released in 1991, Python's design philosophy emphasizes code readability with its notable use of significant whitespace. Its language constructs and object-oriented approach aim to help programmers write clear, logical code for small and large-scale projects.[28]
+
+Python is dynamically typed and garbage-collected. It supports multiple programming paradigms, including procedural, object-oriented, and functional programming. Python is often described as a "batteries included" language due to its comprehensive standard library.[29]
+
+Python was conceived in the late 1980s as a successor to the ABC language. Python 2.0, released in 2000, introduced features like list comprehensions and a garbage collection system capable of collecting reference cycles. Python 3.0, released in 2008, was a major revision of the language that is not completely backward-compatible, and much Python 2 code does not run unmodified on Python 3.
+
+The Python 2 language, i.e. Python 2.7.x, was officially discontinued on 1 January 2020 (first planned for 2015) after which security patches and other improvements will not be released for it.[30][31] With Python 2's end-of-life, only Python 3.5.x[32] and later are supported.
+
+Python interpreters are available for many operating systems. A global community of programmers develops and maintains CPython, an open source[33] reference implementation. A non-profit organization, the Python Software Foundation, manages and directs resources for Python and CPython development.</p>
+        </div>
+        </div>
+        <div class="container">
+        <h2>{{pics}}</h2>
+        <div class="row">
+          <div class="col-lg-4 col-xs-6 thumbnail"><img src="{% static 'todoapp/img/django.jpeg'%}" alt="" width="200" height="200"></div>
+          <div class="col-lg-4 col-xs-6 thumbnail"><img src="{% static 'todoapp/img/django.jpeg'%}" alt="" width="200" height="200"></div>
+          <div class="col-lg-4 col-xs-6 thumbnail"><img src="{% static 'todoapp/img/django.jpeg'%}" alt="" width="200" height="200"></div>
+          <div class="col-lg-4 col-xs-6 thumbnail"><img src="{% static 'todoapp/img/django.jpeg'%}" alt="" width="200" height="200"></div>
+          <div class="col-lg-4 col-xs-6 thumbnail"><img src="{% static 'todoapp/img/django.jpeg'%}" alt="" width="200" height="200"></div>
+          <div class="col-lg-4 col-xs-6 thumbnail"><img src="{% static 'todoapp/img/django.jpeg'%}" alt="" width="200" height="200"></div>
+
+        </div>
+        <div class="row">
+        {% if fetchvalue %}
+<table class="table table-striped table-dark">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Site Name</th>
+      <th scope="col">Date</th>
+
+    </tr>
+  </thead>
+  <tbody>
+
+  {% for value in fetchvalue %}
+    <tr>
+      <th scope="row">{{1}}</th>
+      <td>{{ value.name }}</td>
+      <td>{{ value.date }}</td>
+    </tr>
+    {% endfor %}
+{% else %}
+
+
+
+
+  </tbody>
+</table>
+{% endif %}
+        </div>
+        </div>
 {% endblock %}
