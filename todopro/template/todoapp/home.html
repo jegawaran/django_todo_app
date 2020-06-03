@@ -17,45 +17,26 @@ The Python 2 language, i.e. Python 2.7.x, was officially discontinued on 1 Janua
 Python interpreters are available for many operating systems. A global community of programmers develops and maintains CPython, an open source[33] reference implementation. A non-profit organization, the Python Software Foundation, manages and directs resources for Python and CPython development.</p>
         </div>
         </div>
-        <div class="container">
-        <h2>{{pics}}</h2>
-        <div class="row">
-          <div class="col-lg-4 col-xs-6 thumbnail"><img src="{% static 'todoapp/img/django.jpeg'%}" alt="" width="200" height="200"></div>
-          <div class="col-lg-4 col-xs-6 thumbnail"><img src="{% static 'todoapp/img/django.jpeg'%}" alt="" width="200" height="200"></div>
-          <div class="col-lg-4 col-xs-6 thumbnail"><img src="{% static 'todoapp/img/django.jpeg'%}" alt="" width="200" height="200"></div>
-          <div class="col-lg-4 col-xs-6 thumbnail"><img src="{% static 'todoapp/img/django.jpeg'%}" alt="" width="200" height="200"></div>
-          <div class="col-lg-4 col-xs-6 thumbnail"><img src="{% static 'todoapp/img/django.jpeg'%}" alt="" width="200" height="200"></div>
-          <div class="col-lg-4 col-xs-6 thumbnail"><img src="{% static 'todoapp/img/django.jpeg'%}" alt="" width="200" height="200"></div>
 
-        </div>
-        <div class="row">
-        {% if fetchvalue %}
-<table class="table table-striped table-dark">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Site Name</th>
-      <th scope="col">Date</th>
+          {% load static %}
 
-    </tr>
-  </thead>
-  <tbody>
 
-  {% for value in fetchvalue %}
-    <tr>
-      <th scope="row">{{1}}</th>
-      <td>{{ value.name }}</td>
-      <td>{{ value.date }}</td>
-    </tr>
+  <div class="container">
+    <h1 class="font-weight-light text-center text-lg-left mt-4 mb-0">Image Gallery</h1>
+    <hr class="mt-2 mb-5">
+    <div class="row text-center text-lg-left">
+          {% for project in projects %}
+          <div class="col-lg-3 col-md-4 col-6">
+      <a href="{{project.url}}" class="d-block mb-4 h-100" target="_blank">
+            <img class="img-fluid img-thumbnail" src="{{project.image.url}}" alt="">{{project.name}}
+          </a>
+
+    </div>
     {% endfor %}
-{% else %}
+  </div>
+</div>
 
 
 
 
-  </tbody>
-</table>
-{% endif %}
-        </div>
-        </div>
 {% endblock %}

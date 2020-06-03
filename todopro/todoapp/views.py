@@ -7,11 +7,13 @@ from .forms import TodoForm
 from .models import Todo
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
+from userdetailapp.models import Project
 
 # Create your views here.
 
 def home(request):
-    return render(request,'todoapp/home.html')
+    projects = Project.objects.all()
+    return render(request,'todoapp/home.html',{'projects':projects})
 
 
 def signupuser(request):
@@ -22,7 +24,7 @@ def signupuser(request):
         print(request)
         if request.POST['password1'] == request.POST['password2']:
             try:
-                user = User.objects.create_user(request.POST['username'],password=request.POST['password1'])
+                user = User.objects.create_user(request.POST['username'],password=request.POST['password1'],email=request.POST['email'],first_name=request.POST['first_name'],last_name=request.POST['last_name'])
                 user.save()
                 login(request,user)
                 return redirect('currentpage')
@@ -61,7 +63,7 @@ def createtodo(request):
 def logoutuser(request):
     if request.method=='POST':
         logout(request)
-        return redirect('home')
+        return render(request,'todoapp/logoutuser.html',{'logout':request.user.username})
 
 
 def currentpage(request):
