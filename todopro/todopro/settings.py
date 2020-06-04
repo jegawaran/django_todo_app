@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'todoapp',
     'userdetailapp',
     'news',
+    'consumer',
 ]
 
 MIDDLEWARE = [
