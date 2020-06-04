@@ -8,12 +8,18 @@ from .models import Todo
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
 from userdetailapp.models import Project
+import requests
+import json
 
 # Create your views here.
 
 def home(request):
     projects = Project.objects.all()
-    return render(request,'todoapp/home.html',{'projects':projects})
+    news_url = requests.get('http://newsapi.org/v2/top-headlines?'
+       'country=us&'
+       'apiKey=88a21b7e651a4648951f42048899dd78')
+    api = json.loads(news_url.content)
+    return render(request,'todoapp/home.html',{'projects':projects,'api':api})
 
 
 def signupuser(request):

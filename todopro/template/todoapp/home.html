@@ -20,8 +20,28 @@ Python interpreters are available for many operating systems. A global community
 
           {% load static %}
 
+<div class="container">
+  <h1 class="font-weight-light text-center text-lg-left mt-4 mb-0">News Updates</h1>
+  <hr class="mt-2 mb-5">
+<div class="row">
+    {%  for value in api.articles %}
+    <div class="col-sm">
+<div class="card" style="width: 20rem;">
+  <img class="card-img-top" src="{{value.urlToImage}}" alt="Card image cap">
+  <div class="card-body">
+    <h4 class="card-title">{{value.title}}</h4>
+    <p class="card-text">{{value.content}}</p>
+    <a href="{{value.url}}" target="_blank" class="btn btn-primary">Click here for more</a>
+  </div>
+</div>
+</div>
+{% endfor %}
+</div>
 
-  <div class="container">
+
+
+
+
     <h1 class="font-weight-light text-center text-lg-left mt-4 mb-0">Image Gallery</h1>
     <hr class="mt-2 mb-5">
     <div class="row text-center text-lg-left">

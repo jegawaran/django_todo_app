@@ -33,6 +33,8 @@ urlpatterns = [
     path('login/',views.loginuser,name='loginuser'),
     path('todo/<int:todo_pk>/complete',views.completetodo,name='completetodo'),
     path('todo/<int:todo_pk>/todoDelete',views.todoDelete,name='todoDelete'),
+    path('userdetailsapp/',include('userdetailapp.urls')),
+    path('news/',include('news.urls')),
 
 ]
 
