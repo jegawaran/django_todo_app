@@ -35,6 +35,8 @@ urlpatterns = [
     path('todo/<int:todo_pk>/todoDelete',views.todoDelete,name='todoDelete'),
     path('userdetailsapp/',include('userdetailapp.urls')),
     path('news/',include('news.urls')),
+    path('consumer/',include('consumer.urls')),
+    path('webscrapy/',include('webscrapy.urls')),
 
 ]
 
